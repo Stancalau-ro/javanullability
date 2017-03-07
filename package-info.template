@@ -1,0 +1,4 @@
+@NotNullByDefault
+package replaceMe;
+
+import ro.stancalau.NotNullByDefault;
