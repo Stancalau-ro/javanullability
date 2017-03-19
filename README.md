@@ -26,10 +26,11 @@ the files automatically when you add or remove a package to your project.
 ### Prerequisites ###
 
 * [Download and install Gradle](https://gradle.org/)
-* Install JRE 8 (the javaFx Gradle plugin does not work on Java 7)
+* Install JRE
 * Ensure JAVA_HOME environment variable is set
 * Ensure PATH environment variable contains path to Gradle
 * Run `gradle clean build` in the project root to build the entire project
 
 
-More information about this project can be found here: http://stancalau.ro/
+More information about this project can be found here:
+http://stancalau.ro/java-package-nullability-contract/
