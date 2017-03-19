@@ -5,13 +5,12 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-
 //Run "gradle clean" for the package-info.java files to get generated.
 //If you delete generated/ro/stancalau/nullability/submodule/package-info.java,
 //you will see that some highlighted errors disappear.
 public class SubModuleClassTest {
 
-    SubModuleClass smc;
+    private SubModuleClass smc;
 
     @Before
     public void setUp() throws Exception {

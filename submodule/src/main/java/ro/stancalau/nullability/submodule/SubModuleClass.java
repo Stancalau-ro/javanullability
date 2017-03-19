@@ -2,7 +2,6 @@ package ro.stancalau.nullability.submodule;
 
 import javax.annotation.Nullable;
 
-
 //Run "gradle clean" for the package-info.java files to get generated.
 //If you delete generated/ro/stancalau/nullability/submodule/package-info.java,
 //you will see that some highlighted errors disappear.

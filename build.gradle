@@ -8,13 +8,7 @@ repositories {
     mavenCentral()
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs generatedNullabilityDir
-        }
-    }
-}
+sourceSets.main.java.srcDirs generatedNullabilityDir
 
 allprojects{
     group 'ro.stancalau'
@@ -26,7 +20,7 @@ allprojects{
     }
 
     dependencies {
-        compile ([group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'])
+        compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
         testCompile group: 'junit', name: 'junit', version: '4.11'
     }
 }

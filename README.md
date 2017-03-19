@@ -32,5 +32,4 @@ the files automatically when you add or remove a package to your project.
 * Run `gradle clean build` in the project root to build the entire project
 
 
-More information about this project can be found here:
-http://stancalau.ro/java-package-nullability-contract/
+More information about this project can be found [here](http://stancalau.ro/java-package-nullability-contract/)

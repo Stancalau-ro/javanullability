@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 //you will see that some highlighted errors disappear.
 public class ProjectClassTest {
 
-    ProjectClass mc;
+    private ProjectClass mc;
 
     @Before
     public void setUp() throws Exception {
