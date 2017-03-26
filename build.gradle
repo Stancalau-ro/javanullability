@@ -1,6 +1,6 @@
 import groovy.io.FileType
 
-def generatedNullabilityDir = 'generated'
+def generatedPackageInfoDir = 'generated'
 
 apply plugin: 'java'
 
@@ -8,7 +8,7 @@ repositories {
     mavenCentral()
 }
 
-sourceSets.main.java.srcDirs generatedNullabilityDir
+sourceSets.main.java.srcDirs generatedPackageInfoDir
 
 allprojects{
     group 'ro.stancalau'
@@ -29,10 +29,10 @@ dependencies {
     compile project(':module')
 }
 
-clean.doLast {generateNullability}
+clean.doLast {generatePackageInfo}
 
-task generateNullability {
-    new File(generatedNullabilityDir).deleteDir()
+task generatePackageInfo {
+    new File(generatedPackageInfoDir).deleteDir()
 
     def list = []
 
@@ -43,7 +43,7 @@ task generateNullability {
     }
 
     list.unique().each {
-        def dir = mkdir(generatedNullabilityDir + '\\\\' + it.replaceAll('\\.', '\\\\'))
+        def dir = mkdir(generatedPackageInfoDir + '\\\\' + it.replaceAll('\\.', '\\\\'))
         def outputFile = new File(dir.absolutePath + "\\\\package-info.java")
         outputFile << new File('package-info.template').text.replace('replaceMe', it)
     }
