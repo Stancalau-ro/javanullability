@@ -19,8 +19,8 @@ the files automatically when you add or remove a package to your project.
 
 * The nullability annotation you can find here: _\src\main\java\ro\stancalau\NotNullByDefault.java_
 * In the project root, find the _package-info.template_ file
-* In _gradle.build_ there is a task named _generateNullability_ that is linked to the _clean_ task
-* In _gradle.build_, you need to set a variable named _generatedNullabilityDir_ which is the name of the generated folder. I suggest adding that folder to the VCS ignore file.
+* In _gradle.build_ there is a task named _generatePackageInfo_ that is linked to the _clean_ task
+* In _gradle.build_, you need to set a variable named _generatedPackageInfoDir_ which is the name of the generated folder. I suggest adding that folder to the VCS ignore file.
 * To let the project take into account the generated sources, add the folder to _sourceSets.main.java_
 
 ### Prerequisites ###
@@ -32,4 +32,4 @@ the files automatically when you add or remove a package to your project.
 * Run `gradle clean build` in the project root to build the entire project
 
 
-More information about this project can be found [here](http://stancalau.ro/java-package-nullability-contract/)
+More information about this project can be found [in this blog post](http://stancalau.ro/java-package-nullability-contract/)
