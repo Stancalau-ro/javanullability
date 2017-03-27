@@ -1,4 +1,5 @@
 import groovy.io.FileType
+import groovy.text.SimpleTemplateEngine
 
 def generatedPackageInfoDir = 'generated'
 
@@ -10,7 +11,7 @@ repositories {
 
 sourceSets.main.java.srcDirs generatedPackageInfoDir
 
-allprojects{
+allprojects {
     group 'ro.stancalau'
 
     apply plugin: 'java'
@@ -29,22 +30,30 @@ dependencies {
     compile project(':module')
 }
 
-clean.doLast {generatePackageInfo}
+clean.doLast { generatePackageInfo }
 
 task generatePackageInfo {
     new File(generatedPackageInfoDir).deleteDir()
 
-    def list = []
+    def packages = [] as Set
 
     new File('.').eachFileRecurse(FileType.FILES) {
         if (it.name.endsWith('.java')) {
-            list << ((it.text =~ "package (.+);")[0][1])
+            packages << ((it.text =~ "package (.+);")[0][1])
         }
     }
 
-    list.unique().each {
+    packages.each {
         def dir = mkdir(generatedPackageInfoDir + '\\\\' + it.replaceAll('\\.', '\\\\'))
-        def outputFile = new File(dir.absolutePath + "\\\\package-info.java")
-        outputFile << new File('package-info.template').text.replace('replaceMe', it)
+        def outputFile = new File(dir.absolutePath, 'package-info.java')
+        String templateOutput = applyPackageInfoTemplate(it)
+        outputFile << templateOutput
     }
+}
+
+private static String applyPackageInfoTemplate(packageName) {
+    def engine = new SimpleTemplateEngine()
+    def templateText = new File('package-info.template').text
+    def templateParams = ['packageName': packageName]
+    engine.createTemplate(templateText).make(templateParams).toString()
 }

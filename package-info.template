@@ -1,4 +1,4 @@
 @NotNullByDefault
-package replaceMe;
+package $packageName;
 
 import ro.stancalau.NotNullByDefault;
