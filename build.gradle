@@ -44,7 +44,7 @@ task generatePackageInfo {
     }
 
     packages.each {
-        def dir = mkdir(generatedPackageInfoDir + '\\\\' + it.replaceAll('\\.', '\\\\'))
+        def dir = mkdir(generatedPackageInfoDir + '/' + it.replaceAll('\\.', '/'))
         def outputFile = new File(dir.absolutePath, 'package-info.java')
         String templateOutput = applyPackageInfoTemplate(it)
         outputFile << templateOutput
